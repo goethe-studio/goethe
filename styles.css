@@ -1,1 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+.gilda-display-regular {
+  font-family: "Gilda Display", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+body {
+  background-color: #511A06;
+  color: #FCF6E6;
+  font-family: "Manrope", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+main {
+  text-align: center;
+  justify-content: center;
+  flex-grow: 1; /* Allows main content to expand, pushing footer down */
+}
+
+footer {
+  position: relative; /* Ensures it stays within the flex layout */
+  padding: 0 30px;
+}
+
+h4, .link {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.8rem;
+    font-weight: 200;
+    font-style: normal;
+    text-transform: uppercase;
+    line-height: 1em;
+  }
+
+p {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1rem;
+    font-weight: 200;
+    font-style: normal;
+    line-height: 1.2em;
+  }
+
+.overline {
+    text-transform: uppercase;
+    font-size: .7rem;
+    font-family: "Gilda Display", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.link a {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+}
+
+.link a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.6s ease; /* Smooth slide-in effect */
+}
+
+.link a:hover::after {
+    width: 100%; /* Expands the underline on hover */
+}
+
+.comingsoon {
+  mix-blend-mode: soft-light;
+}
+.image-banner {
+  mix-blend-mode: soft-light;
+}
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: top;
+  padding: 30px;
+  gap: 80px;
+  text-align: left;
+}
+
+.left-intro, .right-contact {
+  display: flex;
+}
+
+.left-intro {
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  max-width: 450px;
+}
+
+.right-contact {
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.contactitem {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  gap: 25px;
+}
+
+/* Desktop Styles (large screens) */
+@media (min-width: 1131px) {
+  h4, .link {
+    font-size: 1.9rem;
+  }
+
+  p {
+    font-size: .9rem;
+  }
+}
+
+@media (min-width: 941px) and (max-width: 1130px) {
+  h4, .link {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: .8rem;
+  }
+}
+
+/* Mobile Styles (small screens) */
+@media (max-width: 940px) {
+  .grid-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .left-intro {
+    gap: 10px;
+    padding-bottom: 20px;
+    max-width: 100%;
+  }
+
+  .right-contact {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .left-intro img, .left-intro p {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .contactitem {
+    padding-bottom: 15px;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 660px) and (max-width: 940) {
+h4, .link {
+  font-size: 1.6rem;
+}
+
+p {
+  font-size: .9rem;
+}
+}
+
+@media (min-width: 381px) and (max-width: 660px) {
+  h4, .link {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 380px) {
+  h4, .link {
+    font-size: 1.4rem;
+  }
+
+  p {
+    font-size: .75em;
+  }
+}
