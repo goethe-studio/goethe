@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="canonical" href="https://goethe.studio/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goethe Studio</title>
@@ -15,7 +16,7 @@
     <header>
         <div class="grid-container">
             <div class="left-intro">
-                <img class ="logo" src="logo.svg" alt="Goethe 'G' Logo" width="40" height="auto">
+                <img id="logo" src="Logos/G-01.svg" alt="Goethe Logo" width="40" height="auto">
                 <p><span style="text-transform: uppercase; font-weight: 500;">Goethe</span> is a new-wave design studio dedicated to sculpting memorable brand experiences with data, strategy, and taste—especially taste.
                 </p>
             </div>
@@ -55,10 +56,18 @@
             <button class="close-overlay-button" onclick="closeOverlay()">Close</button>
         </div>
     </div>
-
     <main>
     </main>
     <footer>
+        <div class="countdown-container">
+            <p class="countdown-text">Coming&nbsp;Soon</p>
+        <div class="progress-bar">
+            <div id="progress" class="progress"></div>
+        </div>
+        <div class="timer">
+        <p id="timer" class="timer-display">00:00:00</p>
+        </div>
+        </div>
         <div class="image-banner">
             <img src="goethe-image-banner.png" alt="Goethe Logo" width="100%" height="auto">
         </div>
@@ -72,6 +81,83 @@
         function closeOverlay() {
             document.getElementById("info-overlay").style.display = "none";
         }
+        // Array of logo images
+const logoImages = [
+    'Logos/G-01.svg',
+    'Logos/G-01.svg',
+    'Logos/G-02.svg',
+    'Logos/G-02.svg',
+    'Logos/G-03.svg',
+    'Logos/G-03.svg',
+    'Logos/G-04.svg',
+    'Logos/G-04.svg',
+    'Logos/G-05.svg',
+    'Logos/G-05.svg'
+];
+
+// Variables to track mouse position and image index
+let lastX = 0, lastY = 0;
+let currentImageIndex = 0;
+
+// Threshold for fast movement detection (adjust this based on desired sensitivity)
+const speedThreshold = 15;
+
+// Function to update the logo image
+function cycleLogo() {
+    const logo = document.getElementById('logo');
+    currentImageIndex = (currentImageIndex + 1) % logoImages.length; // Cycle to the next image
+    logo.src = logoImages[currentImageIndex];
+}
+
+// Event listener for mouse movement
+document.addEventListener('mousemove', (event) => {
+    // Calculate the distance moved since the last event
+    const distance = Math.sqrt(Math.pow(event.clientX - lastX, 2) + Math.pow(event.clientY - lastY, 2));
+
+    // Update last mouse position
+    lastX = event.clientX;
+    lastY = event.clientY;
+
+    // If movement is fast, cycle the logo
+    if (distance > speedThreshold) {
+        cycleLogo();
+    }
+});
+
+// Set the launch date (February 1, 2025)
+const launchDate = new Date('2025-02-01T00:00:00').getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const timeLeft = launchDate - now;
+
+    // Calculate days, hours, minutes, and seconds
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    // Format the timer as DD:HH:MM:SS
+    const formattedTime = `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    document.getElementById("timer").innerHTML = formattedTime;
+
+    // Update the progress bar width based on time remaining
+    const progressElement = document.getElementById("progress");
+    const totalTime = launchDate - (new Date('2024-01-01T00:00:00')).getTime();
+    const progressPercentage = ((totalTime - timeLeft) / totalTime) * 100;
+    progressElement.style.width = `${progressPercentage}%`;
+
+    // Stop the countdown when time is up
+    if (timeLeft < 0) {
+        clearInterval(countdownInterval);
+        document.getElementById("timer").innerHTML = "00:00:00:00";
+        progressElement.style.width = '100%';
+    }
+}
+
+// Update the countdown every second
+const countdownInterval = setInterval(updateCountdown, 1000);
+
     </script>    
 </body>
 </html>

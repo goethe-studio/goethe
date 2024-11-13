@@ -25,7 +25,7 @@
 
 body {
   background-color: #511A06;
-  color: #FCF6E6;
+  color: #F3ECD8;
   font-family: "Manrope", sans-serif;
   font-weight: 300;
   font-size: 16px;
@@ -38,13 +38,66 @@ body {
 
 main {
   text-align: center;
-  justify-content: center;
-  flex-grow: 1; /* Allows main content to expand, pushing footer down */
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.logo {
+  color: #F3ECD8;
+}
+
+.countdown-container {
+  display: flex;
+  width: 95%;
+  align-items: center;
+  padding: 0;
+}
+
+.countdown-text {
+  font-size: .8rem;
+  padding-right: 10px;
+  text-transform: uppercase;
+  color: #97543C;
+}
+
+.timer-display {
+  font-size: .8rem;
+  padding-left: 10px;
+  font-weight: 400;
+  color: #97543C;
+}
+
+/* Progress bar styling */
+.progress-bar {
+  width: calc(100% - 60px);
+  background-color: #511A06;
+  height: 1px; /* Adjust thickness as desired */
+}
+
+.progress {
+  height: 100%;
+  background-color: #97543C;
+  width: 0%; /* Start at 0% */
+  transition: width 1s linear;
+}
+
+/* Image banner styling */
+.image-banner {
+  mix-blend-mode: soft-light;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 footer {
-  position: relative; /* Ensures it stays within the flex layout */
-  padding: 0 30px;
+  position: relative;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h4, .link {
@@ -105,9 +158,9 @@ p {
   font-size: .8rem;
   padding: 8px 20px;
   background-color: transparent;
-  color: #F8F5EC;
+  color: #F3ECD8;
   border: 1px solid;
-  border-color: #F8F5EC;
+  border-color: #F3ECD8;
   border-radius: 100px;
   cursor: pointer;
   margin: 0;
@@ -122,7 +175,7 @@ p {
   width: 100vw;
   height: 100vh;
   color: #511A06;
-  background-color: #F8F5EC; 
+  background-color: #F3ECD8; 
   z-index: 1000; /* Ensures overlay sits above other content */
 }
 
@@ -162,18 +215,7 @@ p {
 .close-overlay-button:hover {
   background-color: #d1c2a5; /* Slightly darker color on hover */
 }
-.comingsoon {
-  mix-blend-mode: soft-light;
-}
-.image-banner {
-  mix-blend-mode: soft-light;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  padding-bottom: env(safe-area-inset-bottom);
-}
+
 .grid-container {
   display: flex;
   flex-direction: row;
