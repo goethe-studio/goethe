@@ -63,15 +63,17 @@ main {
 }
 
 .timer-display {
-  font-size: .8rem;
+  font-size: .7rem;
   padding-left: 10px;
   font-weight: 400;
   color: #97543C;
+  min-width: 150px;
+  text-align: right;
 }
 
 /* Progress bar styling */
 .progress-bar {
-  width: calc(100% - 60px);
+  width: calc(100% - 100px);
   background-color: #511A06;
   height: 1px; /* Adjust thickness as desired */
 }

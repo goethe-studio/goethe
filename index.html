@@ -65,7 +65,7 @@
             <div id="progress" class="progress"></div>
         </div>
         <div class="timer">
-        <p id="timer" class="timer-display">00:00:00</p>
+        <p id="timer" class="timer-display">Time Remaining</p>
         </div>
         </div>
         <div class="image-banner">
@@ -137,8 +137,8 @@ function updateCountdown() {
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    // Format the timer as DD:HH:MM:SS
-    const formattedTime = `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    // Format the timer as 00D 00H 00M 00S
+    const formattedTime = `${String(days).padStart(2, '0')}D ${String(hours).padStart(2, '0')}H ${String(minutes).padStart(2, '0')}M ${String(seconds).padStart(2, '0')}S`;
     document.getElementById("timer").innerHTML = formattedTime;
 
     // Update the progress bar width based on time remaining
@@ -150,13 +150,14 @@ function updateCountdown() {
     // Stop the countdown when time is up
     if (timeLeft < 0) {
         clearInterval(countdownInterval);
-        document.getElementById("timer").innerHTML = "00:00:00:00";
+        document.getElementById("timer").innerHTML = "00D 00H 00M 00S";
         progressElement.style.width = '100%';
     }
 }
 
 // Update the countdown every second
 const countdownInterval = setInterval(updateCountdown, 1000);
+
 
     </script>    
 </body>
