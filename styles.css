@@ -62,6 +62,9 @@ main {
   color: #97543C;
 }
 
+.timer, .timer-display {
+  min-width: 200px;
+}
 .timer-display {
   font-size: .7rem;
   padding-left: 10px;
