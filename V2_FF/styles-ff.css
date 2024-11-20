@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.gilda-display-regular {
+  font-family: "Gilda Display", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh; /* Full viewport height */
+}
+
+body {
+  background-color: #511A06;
+  color: #F3ECD8;
+  font-family: "Manrope", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+main {
+  text-align: center;
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.logo {
+  color: #F3ECD8;
+}
+
+.countdown-container {
+  display: flex;
+  width: 95%;
+  align-items: center;
+  padding: 0;
+}
+
+.countdown-text {
+  font-size: .8rem;
+  padding-right: 10px;
+  text-transform: uppercase;
+  color: #97543C;
+}
+
+.timer, .timer-display {
+  min-width: 200px;
+}
+.timer-display {
+  font-size: .7rem;
+  padding-left: 10px;
+  font-weight: 400;
+  color: #97543C;
+  min-width: 200px;
+  text-align: right;
+}
+
+/* Progress bar styling */
+.progress-bar {
+  width: calc(100% - 100px);
+  background-color: #511A06;
+  height: 1px; /* Adjust thickness as desired */
+}
+
+.progress {
+  height: 100%;
+  background-color: #97543C;
+  width: 0%; /* Start at 0% */
+  transition: width 1s linear;
+}
+
+/* Image banner styling */
+.image-banner {
+  mix-blend-mode: soft-light;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+footer {
+  position: relative;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h4, .link {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.8rem;
+    font-weight: 200;
+    font-style: normal;
+    text-transform: uppercase;
+    line-height: 1em;
+  }
+
+p {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1rem;
+    font-weight: 200;
+    font-style: normal;
+    line-height: 1.2em;
+  }
+
+.overline {
+    text-transform: uppercase;
+    font-size: .7rem;
+    font-family: "Gilda Display", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.link a {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+}
+
+.link a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.6s ease; /* Smooth slide-in effect */
+}
+
+.link a:hover::after {
+    width: 100%; /* Expands the underline on hover */
+}
+
+/* Info Button (Only show on small screens) */
+.info-button {
+  display: none; /* Hidden by default; only show on small screens */
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-family: "Gilda Display", serif;
+  font-size: .8rem;
+  padding: 8px 20px;
+  background-color: transparent;
+  color: #F3ECD8;
+  border: 1px solid;
+  border-color: #F3ECD8;
+  border-radius: 100px;
+  cursor: pointer;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  color: #511A06;
+  background-color: #F3ECD8; 
+  z-index: 1000; /* Ensures overlay sits above other content */
+}
+
+.overlay-content {
+  color: #511A06;
+  position: relative;
+  top: 20px;
+  left: 20px;
+  text-align: left;
+}
+
+.overlay-contactitem {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  gap: 10px;
+  padding-bottom: 30px;
+}
+
+.close-overlay-button {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  color: #511A06;
+  text-decoration: underline;
+  font-size: .9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.close-overlay-button:hover {
+  background-color: #d1c2a5; /* Slightly darker color on hover */
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: top;
+  padding: 300px;
+  gap: 80px;
+  text-align: left;
+}
+
+.left-intro, .right-contact {
+  display: flex;
+}
+
+.left-intro {
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  max-width: 400px;
+}
+
+.right-contact {
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.contactitem {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  gap: 25px;
+}
+
+/* Desktop Styles (large screens) */
+@media (min-width: 1131px) {
+  h4, .link {
+    font-size: 1.9rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 941px) and (max-width: 1130px) {
+  h4, .link {
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobile Styles (small screens) */
+@media (max-width: 940px) {
+  .grid-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .left-intro {
+    gap: 10px;
+    padding-bottom: 20px;
+    max-width: 100%;
+  }
+
+  .right-contact {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .left-intro img, .left-intro p {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .contactitem {
+    padding-bottom: 15px;
+    gap: 10px;
+  }
+
+  h4, .link {
+    font-size: 1.6rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 381px) and (max-width: 660px) {
+  h4, .link {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 380px) {
+  h4, .link {
+    font-size: 1.4rem;
+  }
+  .info-button {
+    display: block;
+}
+
+.right-contact {
+    display: none;
+}
+
+.overlay {
+    display: none; /* Show overlay when activated */
+}
+}
