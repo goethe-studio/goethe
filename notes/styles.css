@@ -75,7 +75,7 @@ main {
 
 .letter-title {
   font-size: 1rem;
-  line-height: 1rem;
+  line-height: 2rem;
   font-family: "Gilda Display", serif;
   font-weight: 400;
   letter-spacing: normal;
@@ -84,7 +84,7 @@ main {
 
 .caption {
   font-size: .9rem;
-  line-height: 2rem;
+  line-height: 1.2rem;
   font-family: "Inter", sans-serif;
   font-weight: 200;
   font-style: italic;
@@ -303,10 +303,6 @@ a:visited {
   transition: background-color 0.3s ease;
 }
 
-.close-overlay-button:hover {
-  background-color: #d1c2a5; /* Slightly darker color on hover */
-}
-
 .grid-container {
   display: flex;
   flex-direction: row;
@@ -363,6 +359,9 @@ a:visited {
 
 /* Mobile Styles (small screens) */
 @media (max-width: 940px) {
+  header {
+    padding: 30px 30px 0 30px;
+  }
   .grid-container {
     flex-direction: column;
     gap: 20px;
@@ -375,6 +374,27 @@ a:visited {
 
   .main-content {
     max-width: 500px;
+    padding: 30px;
+  }
+
+  .note-header {
+    padding: 0px 0 18px;
+  }
+
+  .letter {
+    font-size: 1rem;
+  }
+
+  .key-numbers {
+    padding: 0 20px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+  .key-numbers-tab {
+    padding: 0 20px;
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   h4, .link {
@@ -391,6 +411,10 @@ a:visited {
 
 .right-contact {
     display: none;
+}
+
+footer {
+  padding: 40px 15px 0px 15px;
 }
 
 .overlay {
