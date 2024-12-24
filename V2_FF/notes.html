@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="canonical" href="https://goethe.studio/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goethe Studio</title>
+    <link rel="stylesheet" href="styles-ff.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/x-icon">
+</head>
+<body>
+    <div class="page-container"> 
+    <header>
+        <div class="grid-container">
+            <div class="left-intro">
+                <img id="logo" src="Logos/G-01.svg" alt="Goethe Logo" width="50" height="auto">
+            </div>
+
+            <!-- Info Button (Only visible on small screens) -->
+            <button class="info-button" onclick="openOverlay()">Info</button>
+
+            <div class="right-contact">
+                <div class="contactitem">
+                    <p class="overline">Reach us at</p>
+                    <h4 class="link"><a href="mailto:hello@goethe.studio">hello@goethe.studio</a></h4>
+                </div>
+                <div class="contactitem">
+                    <p class="overline">Follow us at</p>
+                    <h4 class="link">
+                        <a href="https://www.instagram.com/goethe.studio" target="_blank" rel="noopener noreferrer">@goethe.studio</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Overlay Structure -->
+    <div id="info-overlay" class="overlay">
+        <div class="overlay-content">
+            <div class="overlay-contactitem">
+                <p class="overline">Reach us at</p>
+                <h4 class="link"><a href="mailto:hello@goethe.studio">hello@goethe.studio</a></h4>
+            </div>
+            <div class="overlay-contactitem">
+                <p class="overline">Follow us at</p>
+                <h4 class="link">
+                    <a href="https://www.instagram.com/goethe.studio" target="_blank" rel="noopener noreferrer">@goethe.studio</a>
+                </h4>
+            </div>
+            <!-- Close Button at the Bottom -->
+            <button class="close-overlay-button" onclick="closeOverlay()">Close</button>
+        </div>
+    </div>
+    <main>
+        <div class="note-header"> 
+            <h2 class="letter-title">From Goethe, With Gratitude</h2> 
+            <p class ="caption">To our closest circle, we want to thank you for all your support and encouragement.</p>
+        </div>
+        <div class="main-content">
+            <p class ="letter">Dear Family & Friends,</p>
+    
+            <p class ="letter">
+                It's hard to believe it was only a couple months ago since we started preparing to launch <a style="font-size: inherit; font-weight: 400;" href="meet-goethe.pdf" target="_blank" download="Meet Goethe">Goethe Studio</a>— a new-wave design studio dedicated to sculpting memorable brand experiences with data, strategy, and taste. From product launches to personal celebrations, we started Goethe with the aim of producing impactful digital experiences, print products, and creative solutions for every story.
+
+            </p>
+    
+            <p class ="letter">
+                Although officially launching in February, we are thrilled to share the incredible progress Goethe has made in just its first six weeks of pre-launch! A few key numbers:
+            </p>
+            <ul class="key-numbers">
+                <li><span style="font-weight: 400;">10</span> clients welcomed</li>
+                <li><span style="font-weight: 400;">7</span> more exciting projects in the pipeline, including:</li>
+                <ul class="key-numbers-tab">
+                  <li><span style="font-weight: 400;">2</span> client referrals</li>
+                  <li><span style="font-weight: 400;">2</span> add-ons from existing partnerships</li>
+                  <li><span style="font-weight: 400;">3</span> new client relationships</li>
+                </ul>
+              </ul>
+            
+              <p class="key-numbers">
+                We've also connected with over <span style="font-weight: 400;">5K</span>  unique individuals through our website and social media channels.
+              </p>
+    
+            <p class ="letter">
+                This success wouldn't have been possible without all of you—our amazing network 🤎 As we celebrate the holidays, we want to express our deepest gratitude. Your support has been nothing short of remarkable, and we feel so much love and encouragement from each of you.
+                <br><br>
+                Ahead of our upcoming launch <span style="font-style: italic; font-weight: 400;">(in 43 days!)</span> we ask that you please continue sharing Goethe within your circles, mention us to your friends with design needs, and help us grow our following on Instagram! Visibility is so important for a business like ours. A simple mention to your network or follow on Instagram can make a huge difference as we work to reach more people who could benefit from our creative services.
+                <br><br>
+                It's true what they say—it takes a village. We're endlessly thankful to have the best one surrounding us.
+            </p>
+            
+            <p class ="letter">
+                With so much gratitude,<br>
+                <span style="font-weight: 400;">Alexa and Luli</span>
+            </p>
+        </div>
+    </main>
+    <footer>
+        <div class="countdown-container">
+            <p class="countdown-text">Coming&nbsp;Soon</p>
+        <div class="progress-bar">
+            <div id="progress" class="progress"></div>
+        </div>
+        <div class="timer">
+        <p id="timer" class="timer-display">Time Remaining</p>
+        </div>
+        </div>
+        <div class="image-banner">
+            <img src="goethe-image-banner.png" alt="Goethe Logo" width="100%" height="auto">
+        </div>
+    </footer>
+    </div>
+    <script>
+        function openOverlay() {
+            document.getElementById("info-overlay").style.display = "block";
+        }
+    
+        function closeOverlay() {
+            document.getElementById("info-overlay").style.display = "none";
+        }
+        
+        // Array of logo images
+        const logoImages = [
+            'Logos/G-01.svg',
+            'Logos/G-02.svg',
+            'Logos/G-03.svg',
+            'Logos/G-04.svg',
+            'Logos/G-05.svg'
+        ];
+
+        // Variables to track the current image index
+        let currentImageIndex = 0;
+
+        // Function to update the logo image
+        function cycleLogo() {
+            const logo = document.getElementById('logo');
+            currentImageIndex = (currentImageIndex + 1) % logoImages.length; // Cycle to the next image
+            logo.src = logoImages[currentImageIndex];
+        }
+
+        // Check if the user is on a mobile device
+        function isMobile() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
+
+        // Handle logo behavior for mobile
+        if (isMobile()) {
+            // Automatically cycle through logos every 3 seconds
+            setInterval(cycleLogo, 3000);
+        } else {
+            // For non-mobile, attach the mouse movement behavior
+            let lastX = 0, lastY = 0;
+            const speedThreshold = 30;
+
+            document.addEventListener('mousemove', (event) => {
+                const distance = Math.sqrt(Math.pow(event.clientX - lastX, 2) + Math.pow(event.clientY - lastY, 2));
+                lastX = event.clientX;
+                lastY = event.clientY;
+
+                if (distance > speedThreshold) {
+                    cycleLogo();
+                }
+            });
+        }
+
+        // Set the launch date (February 1, 2025)
+        const launchDate = new Date('2025-02-01T00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = launchDate - now;
+
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            // Format the timer as 00D 00H 00M 00S
+            const formattedTime = `${String(days).padStart(2, '0')}D ${String(hours).padStart(2, '0')}H ${String(minutes).padStart(2, '0')}M ${String(seconds).padStart(2, '0')}S`;
+            document.getElementById("timer").innerHTML = formattedTime;
+
+            // Update the progress bar width based on time remaining
+            const progressElement = document.getElementById("progress");
+            const totalTime = launchDate - (new Date('2024-01-01T00:00:00')).getTime();
+            const progressPercentage = ((totalTime - timeLeft) / totalTime) * 100;
+            progressElement.style.width = `${progressPercentage}%`;
+
+            // Stop the countdown when time is up
+            if (timeLeft < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("timer").innerHTML = "00D 00H 00M 00S";
+                progressElement.style.width = '100%';
+            }
+        }
+
+        // Update the countdown every second
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+
+    </script>    
+</body>
+</html>
