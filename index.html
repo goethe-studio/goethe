@@ -127,7 +127,7 @@
         }
 
         // Set the launch date (February 1, 2025)
-        const launchDate = new Date('2025-02-01T00:00:00').getTime();
+        const launchDate = new Date('2025-02-04T00:00:00').getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -145,7 +145,7 @@
 
             // Update the progress bar width based on time remaining
             const progressElement = document.getElementById("progress");
-            const totalTime = launchDate - (new Date('2024-01-04T00:00:00')).getTime();
+            const totalTime = launchDate - (new Date('2024-01-01T00:00:00')).getTime();
             const progressPercentage = ((totalTime - timeLeft) / totalTime) * 100;
             progressElement.style.width = `${progressPercentage}%`;
 
