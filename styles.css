@@ -392,7 +392,7 @@ p {
 }
 
 .nav-item {
-  width: 380px;
+  width: 350px;
   padding: 15px 20px 20px 20px;
   border-radius: 16px;
   text-align: center;
@@ -405,6 +405,17 @@ p {
   background-color: #FBF2DC;
 }
 
+.nav-item-vault {
+  width: 350px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.nav-item-vault:hover {
+  background-color: #FBF2DC;
+}
+
 .nav-title, a {
   color: #02228C;
   margin-bottom: 5px;
@@ -413,15 +424,14 @@ p {
   position: relative;
   display: inline-flex;
   align-items: center;
+  text-decoration: underline;
 }
 
-/* Style for the diagonal arrow */
-.nav-arrow {
-  font-size: 0.6rem;
-  font-weight: 500;
-  margin-bottom: 2px;
-  text-decoration: none;
-  margin-left: 7px; 
+/* Style for the SVG arrows */
+.nav-icon {
+  width: 8px; /* Adjust size */
+  height: auto;
+  margin-left: 7px; /* Spacing from text */
   display: inline-block;
 }
 
@@ -616,8 +626,4 @@ p {
 
 #emailInput {
   font-size: 16px;
-}
-
-.nav-item {
-  background-color: #FBF2DC;
 }
