@@ -344,12 +344,12 @@ p {
   font-weight: 600;
   letter-spacing: .02rem;
   font-size: 11px;
-  padding: 7px 16px 7px 14px;
+  padding: 4px 20px;
   background-color: #3C0500; 
   color: #FCF6E6;
   border: 1px solid #3C0500; /* Brown border */
   border-radius: 100px;
-  cursor: pointer;
+  cursor:default;
   text-transform: uppercase;
 }
 
