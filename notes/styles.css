@@ -239,10 +239,8 @@ a:visited {
   color: inherit; /* Keeps the same color after the link is clicked */
 }
 
-/* Info Button (Only show on small screens) */
 .info-button {
-  display: none; /* Hidden by default; only show on small screens */
-  position: absolute;
+  display: flex;
   top: 30px;
   right: 30px;
   font-family: "Gilda Display", serif;
@@ -313,18 +311,18 @@ a:visited {
   text-align: left;
 }
 
-.left-intro, .right-contact {
+.top-intro, .bottom-contact {
   display: flex;
 }
 
-.left-intro {
+.top-intro {
   flex-direction: column;
   justify-content: flex-end;
   gap: 20px;
   max-width: 400px;
 }
 
-.right-contact {
+.bottom-contact {
   flex-direction: row;
   justify-content: flex-end;
   gap: 20px;
@@ -336,7 +334,6 @@ a:visited {
   justify-content: top;
   gap: 15px;
 }
-
 /* Desktop Styles (large screens) */
 @media (min-width: 1131px) {
   h4, .link {
@@ -405,10 +402,6 @@ a:visited {
     font-size: 1.2rem;
   }
 
-  .info-button {
-    display: block;
-}
-
 .right-contact {
     display: none;
 }
@@ -432,9 +425,6 @@ footer {
   h4, .link {
     font-size: 1.4rem;
   }
-  .info-button {
-    display: block;
-}
 
 .right-contact {
     display: none;

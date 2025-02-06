@@ -9,86 +9,90 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.svg" type="image/x-icon">
 </head>
 <body>
     <div class="page-container"> 
-    <header>
-        <div class="grid-container">
-            <div class="left-intro">
-                <img id="logo" src="Logos/G-01.svg" alt="Goethe Logo" width="40" height="auto">
-                <p><span style="text-transform: uppercase; font-weight: 500;">Goethe</span> is a new-wave design studio dedicated to sculpting memorable brand experiences with data, strategy, and taste—especially taste.
-                </p>
-            </div>
-
-            <!-- Info Button (Only visible on small screens) -->
-            <button class="info-button" onclick="openOverlay()">Info</button>
-
-            <div class="right-contact">
-                <div class="contactitem">
-                    <p class="overline">Reach us at</p>
-                    <h4 class="link"><a href="mailto:hello@goethe.studio">hello@goethe.studio</a></h4>
+        <header>
+            <div class="grid-container">
+                <div class="left-intro">
+                    <img id="logo" src="Logos/Cream/G_01_Cream.svg" alt="Goethe Logo" width="40" height="auto">
+                    <p><span style="text-transform: uppercase; font-weight: 500;">Goethe</span> is a new-wave design studio dedicated to sculpting memorable brand experiences with data, strategy, and taste—especially taste.</p>
                 </div>
-                <div class="contactitem">
-                    <p class="overline">Follow us at</p>
-                    <h4 class="link">
-                        <a href="https://www.instagram.com/goethe.studio" target="_blank" rel="noopener noreferrer">@goethe.studio</a>
-                    </h4>
+                <div class="right-menu">
+                        <button class="menu-button" onclick="toggleOverlay()">Menu</button>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- Overlay Structure -->
-    <div id="info-overlay" class="overlay">
-        <div class="overlay-content">
-            <div class="overlay-contactitem">
-                <p class="overline">Reach us at</p>
-                <h4 class="link"><a href="mailto:hello@goethe.studio">hello@goethe.studio</a></h4>
+        <!-- Overlay Structure -->
+        <div id="info-overlay" class="overlay">
+                    <button class="menu-button" style="background-color: #02228C; border: 1px solid #02228C;" onclick="toggleOverlay()">Home</button>
+                <div class="overlay-content">
+                    <div class="nav-item">
+                       <h4 class="nav-title"><a href="mailto:hello@goethe.studio">Reach Out</a></h4>
+                        <p class="nav-description">Have a story to tell?<br>Your vision is waiting</p>
+                    </div>
+                    <div class="nav-item">
+                        <h4 class="nav-title"><a href="https://www.instagram.com/goethe.studio" target="_blank">Follow Us</a></h4>
+                        <p class="nav-description">The best kept secret in design services.<br>Follow along for exclusive access</p>
+                    </div>
+                </div>   
+        </div>
+
+        <main>
+            <div class="email-container">
+                <div class="emailTitle">
+                    <h4>Have a story to tell?</h4>
+                    <h1>Discover how Goethe can&nbsp;help you</h1>
+                </div>
+                <form id="emailForm">
+                    <input type="email" id="emailInput" placeholder="Enter your email" required>
+                    <button type="submit" id="submitButton">
+                        <span id="buttonText">Your Vision Is Waiting</span>
+                        <span id="loadingSpinner" class="spinner"></span>
+                        <span id="statusText"> </span> <!-- Dynamic text: "Saving..." or "Done" -->
+                        <span id="checkmark" class="checkmark">&#10003;</span>
+                    </button>
+                </form>
+                <p id="emailMessage"></p> <!-- The thank-you message replaces form -->
             </div>
-            <div class="overlay-contactitem">
-                <p class="overline">Follow us at</p>
-                <h4 class="link">
-                    <a href="https://www.instagram.com/goethe.studio" target="_blank" rel="noopener noreferrer">@goethe.studio</a>
-                </h4>
+        </main>
+
+        <footer>
+            <div class="image-banner">
+                <img src="goethe-image-banner.png" alt="Goethe Logo" width="100%" height="auto">
             </div>
-            <!-- Close Button at the Bottom -->
-            <button class="close-overlay-button" onclick="closeOverlay()">Close</button>
-        </div>
+        </footer>
     </div>
-    <main>
-    </main>
-    <footer>
-        <div class="countdown-container">
-            <p class="countdown-text">Coming&nbsp;Soon</p>
-        <div class="progress-bar">
-            <div id="progress" class="progress"></div>
-        </div>
-        <div class="timer">
-        <p id="timer" class="timer-display">Time Remaining</p>
-        </div>
-        </div>
-        <div class="image-banner">
-            <img src="goethe-image-banner.png" alt="Goethe Logo" width="100%" height="auto">
-        </div>
-    </footer>
-    </div>
+
     <script>
-        function openOverlay() {
-            document.getElementById("info-overlay").style.display = "block";
-        }
-    
-        function closeOverlay() {
-            document.getElementById("info-overlay").style.display = "none";
-        }
+    //NAVIGATION OVERLAY "MENU" BUTTON TOGGLE//
+        function toggleOverlay() {
+    let overlay = document.getElementById("info-overlay");
+    let menuButtons = document.querySelectorAll(".menu-button"); // Select both menu buttons
+
+    if (overlay.classList.contains("open")) {
+        overlay.classList.remove("open"); // Hide overlay
+        menuButtons.forEach(button => {
+            button.textContent = "Menu"; // Change text back to "Menu"
+        });
+    } else {
+        overlay.classList.add("open"); // Show overlay
+        menuButtons.forEach(button => {
+            button.textContent = "Home"; // Change text to "Home"
+        });
+    }
+}
+    //LOGO IMAGERY//
         // Array of logo images
         const logoImages = [
-            'Logos/G-01.svg',
-            'Logos/G-02.svg',
-            'Logos/G-03.svg',
-            'Logos/G-04.svg',
-            'Logos/G-05.svg'
+            'Logos/Cream/G_01_Cream.svg',
+            'Logos/Cream/G_02_Cream.svg',
+            'Logos/Cream/G_03_Cream.svg',
+            'Logos/Cream/G_04_Cream.svg',
+            'Logos/Cream/G_05_Cream.svg'
         ];
 
         // Variables to track the current image index
@@ -125,41 +129,57 @@
                 }
             });
         }
+    
+    //EMAIL CAPTURE FORM//
+    document.getElementById("emailForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent page reload
 
-        // Set the launch date (February 1, 2025)
-        const launchDate = new Date('2025-02-04T00:00:00').getTime();
+    let emailInput = document.getElementById("emailInput").value;
+    let submitButton = document.getElementById("submitButton");
+    let buttonText = document.getElementById("buttonText");
+    let spinner = document.getElementById("loadingSpinner");
+    let checkmark = document.getElementById("checkmark");
+    let statusText = document.getElementById("statusText");
+    let emailContainer = document.querySelector(".email-container");
+    let emailMessage = document.getElementById("emailMessage");
+    let googleScriptURL = "https://script.google.com/macros/s/AKfycbwkd41HgMaJHEcNo3e8jcB5yDj5FpBDKrqC8NUQHe-BFKJdu6iHSagNS3mdkPBxm3UE/exec"; 
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const timeLeft = launchDate - now;
+    if (emailInput.includes("@") && emailInput.includes(".")) {
+        // Show loading state
+        buttonText.style.display = "none"; // Hide "Subscribe"
+        spinner.style.display = "inline-block"; // Show spinner
+        statusText.textContent = "Saving..."; // Update status text
 
-            // Calculate days, hours, minutes, and seconds
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        fetch(googleScriptURL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `email=${encodeURIComponent(emailInput)}`
+        }).then(() => {
+            // Switch to checkmark and "Done" text
+            spinner.style.display = "none"; // Hide spinner
+            checkmark.style.display = "inline-block"; // Show checkmark
+            statusText.textContent = "Done"; // Update status text
 
-            // Format the timer as 00D 00H 00M 00S
-            const formattedTime = `${String(days).padStart(2, '0')}D ${String(hours).padStart(2, '0')}H ${String(minutes).padStart(2, '0')}M ${String(seconds).padStart(2, '0')}S`;
-            document.getElementById("timer").innerHTML = formattedTime;
+            setTimeout(() => {
+                // Collapse form into a thank-you message
+                emailContainer.style.opacity = "0";
+                setTimeout(() => {
+                    emailContainer.innerHTML = `<h2 class="thank-you-message">Thank you.<br>We'll be in touch shortly!</h2>`;
+                    emailContainer.style.opacity = "1";
+                }, 150); // Small delay for smooth transition
+            }, 500); // Show checkmark for 2 seconds
 
-            // Update the progress bar width based on time remaining
-            const progressElement = document.getElementById("progress");
-            const totalTime = launchDate - (new Date('2024-01-01T00:00:00')).getTime();
-            const progressPercentage = ((totalTime - timeLeft) / totalTime) * 100;
-            progressElement.style.width = `${progressPercentage}%`;
-
-            // Stop the countdown when time is up
-            if (timeLeft < 0) {
-                clearInterval(countdownInterval);
-                document.getElementById("timer").innerHTML = "00D 00H 00M 00S";
-                progressElement.style.width = '100%';
-            }
-        }
-
-        // Update the countdown every second
-        const countdownInterval = setInterval(updateCountdown, 1000);
-
+            document.getElementById("emailInput").value = ""; // Clear input
+        }).catch((error) => {
+            buttonText.style.display = "inline"; // Restore text
+            spinner.style.display = "none"; // Hide spinner
+            statusText.textContent = ""; // Remove status text
+        });
+    } else {
+        alert("Please enter a valid email.");
+    }
+});
 
     </script>    
 </body>

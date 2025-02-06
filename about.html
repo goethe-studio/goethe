@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="canonical" href="https://goethe.studio/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Goethe Studio was founded by a Parsons-Penn duo looking to bring a flexible approach to design rooted in technology, strategy, but above all, taste.">
+  <title>Goethe Studio | About Us: Meet Goethe</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/x-icon">
+</head>
+<body class="about-page">
+    <div class="page-container">
+        <header>
+            <div class="grid-container">
+                <div class="left-intro">
+                    <img id="logo" src="Logos/Brown/G_01_Brown.svg" alt="Goethe Logo" width="40" height="auto">
+                </div>
+                <div class="right-menu">
+                    <nav>
+                        <button class="menu-button" onclick="openOverlay()">Menu</button>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+<!-- Overlay Structure -->
+<div id="info-overlay" class="overlay">
+    <div class="overlay-content">
+        <div class="overlay-contactitem">
+            <button class="menu-button" onclick="openOverlay()">Menu</button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">Meet Goethe</a></li>
+                <li><a href="mailto:hello@goethe.studio">Reach Out</a></li>
+                <li><a href="https://www.instagram.com/goethe.studio" target="_blank">Follow Us</a></li>
+            </ul>
+        </div>
+        <!-- Close Button at the Bottom -->
+        <button class="close-overlay-button" onclick="closeOverlay()">Close</button>
+    </div>
+</div>
+  <div class="maincontent">
+  <h4>Meet your creative conduit</h4>
+
+  <!-- HERO -->
+   <div class ="main-frame">
+    <section class="hero">
+        <img src="meet-goethe-hero.jpg" alt="Founders At Work" width="100%" height="auto">
+    </section>
+
+  <!-- OUR MISSION -->
+    <section class="mission">
+        <h2>Our mission is to deliver adaptable, end&nbsp;to&nbsp;end design solutions tailored to each client's unique needs.</h2>
+    </section>
+
+  <!-- MEET THE FOUNDERS -->
+    <section class="founders-intro">
+        <div class="meet-founders">
+            <div class="meet-founders-content">
+                <h4>The Founders</h4>
+                <p>Through the union of our strategic and creative perspectives and Penn-Parsons backgrounds, we form a powerhouse pairing.</p>
+                <p>After a decade of creating performance-driven design experiences for global brands, we're expanding our footprint.</p>
+                <p>With complementary skill sets and international reach, we built Goethe to bring our proven method to a broader audience.</p> 
+                <p>From product launches to personal celebrations, we produce impactful digital experiences that transform ideas into lasting impact.</p>
+            </div>
+            <div class="founders-headshot">
+                <a href="">Alexa</a>
+                <img src="images/founder1.jpg" alt="Founder 1">
+            </div>
+            <div class="founders-headshot">
+                <a href="">Luli</a>
+                <img src="images/founder2.jpg" alt="Founder 2">
+            </div>
+        </div>
+        <div class="founders-letter">
+            <h4>A THANK YOU NOTE - FEB 03 2023</h4>
+            <p>We are so excited to finally bring Goethe to you. Over the past few months, we've been operating in stealth mode—immersing ourselves in customer insights, refining our offerings, and streamlining our processes.</p>
+            <p>Our launch is driven by a clear vision to transform design services by:</p>
+            <ul>
+                <li>Crafting hyper-personalized brand experiences</li>
+                <li>Merging strategic insight with creative innovation</li>
+                <li>Delivering flexible solutions for brands at every stage</li>
+            </ul>
+            <p>None of this would have been possible without the entrepreneurs, creators, and visionaries who've inspired our journey.</p>
+            <p>We can't wait to see what we'll create together.</p>
+            <p>Warmly,<br>Alexa & Luli</p>
+        </div>
+    </section>
+
+    <!-- CLOSING STATEMENT -->
+    <section class="statement">
+        <h2>Above all, we are in the business of good taste.</h2>
+        <p>We create outstanding work, not just because we understand contemporary branding, but because we pour passion and taste into every detail.</p>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <p>HAVE A STORY TO TELL? <a href="mailto:hello@goethe.studio">GET IN TOUCH</a></p>
+    </section>
+</div>
+</div>
+</div>
+<script>
+    function openOverlay() {
+        document.getElementById("info-overlay").style.display = "block";
+    }
+
+    function closeOverlay() {
+        document.getElementById("info-overlay").style.display = "none";
+    }
+
+    // Array of logo images
+    const logoImages = [
+            'Logos/Brown/G_01_Brown.svg',
+            'Logos/Brown/G_02_Brown.svg',
+            'Logos/Brown/G_03_Brown.svg',
+            'Logos/Brown/G_04_Brown.svg',
+            'Logos/Brown/G_05_Brown.svg'
+        ];
+
+        // Variables to track the current image index
+        let currentImageIndex = 0;
+
+        // Function to update the logo image
+        function cycleLogo() {
+            const logo = document.getElementById('logo');
+            currentImageIndex = (currentImageIndex + 1) % logoImages.length; // Cycle to the next image
+            logo.src = logoImages[currentImageIndex];
+        }
+
+        // Check if the user is on a mobile device
+        function isMobile() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
+
+        // Handle logo behavior for mobile
+        if (isMobile()) {
+            // Automatically cycle through logos every 3 seconds
+            setInterval(cycleLogo, 2000);
+        } else {
+            // For non-mobile, attach the mouse movement behavior
+            let lastX = 0, lastY = 0;
+            const speedThreshold = 30;
+
+            document.addEventListener('mousemove', (event) => {
+                const distance = Math.sqrt(Math.pow(event.clientX - lastX, 2) + Math.pow(event.clientY - lastY, 2));
+                lastX = event.clientX;
+                lastY = event.clientY;
+
+                if (distance > speedThreshold) {
+                    cycleLogo();
+                }
+            });
+        }
+</script>    
+</body>
+</html>
