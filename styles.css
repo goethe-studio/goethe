@@ -98,7 +98,7 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 50px 0 0;
+  padding: 50px 20px 0;
   background: transparent;
   margin: 0 auto;
   border-radius: 10px;
@@ -134,7 +134,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 400px;
   justify-content: center;
 }
 
@@ -151,7 +150,7 @@ main {
   opacity: 1;
   color: #FCF6E6;
   outline: none;
-  width: 100%;
+  width: 400px;
 }
 
 #emailInput:focus {
@@ -182,8 +181,7 @@ main {
   border-radius: 100px;
   cursor: pointer;
   text-transform: uppercase;
-  width: auto;
-  min-width: 120px;
+  width: 400px;
   transition: all 0.1s ease-in-out;
 }
 
@@ -612,32 +610,30 @@ p {
   }
 }
 
-@media (min-width: 381px) and (max-width: 660px) {
+@media (max-width: 660px) {
   h3, .link {
     font-size: 1.8rem;
   }
-  #email-form {
-    width: 95vw;
-    padding: 30px;
+
+  #emailInput, #submitButton {
+    font-size: 16px;
+    width: 320px;
   }
 
   .thank-you-wrapper {
     padding: 30px;
-    max-width: 95vw;
+    width: 100%;
+  }
+  
+  /* Title Styling */
+  .thank-you-title {
+    margin-bottom: 20px;
+    opacity: .9;
+  }
+  
+  /* Main Message Styling */
+  .thank-you-message, p {
+    font-size: 1.2rem;
   }
 
-  .emailTitle h1 {
-    font-size: 1.4rem;
-    line-height: 1.9rem;
-    font-weight: 200;
-    text-transform: uppercase;
-    font-family:"Inter", sans-serif;
-    color: #F3ECD8;
-    margin-bottom: 10px;
-  }
-
-}
-
-#emailInput {
-  font-size: 16px;
 }
