@@ -28,16 +28,24 @@
 
         <!-- Overlay Structure -->
         <div id="info-overlay" class="overlay">
-                    <button class="menu-button" style="background-color: #02228C; border: 1px solid #02228C;" onclick="toggleOverlay()">Home</button>
+            <!-- Home Button -->
+            <button class="vault-button">🔒  The Vault</button>
+            <button class="menu-button" style="background-color: #02228C; border: 1px solid #02228C;" onclick="toggleOverlay()">Home</button>
                 <div class="overlay-content">
                     <div class="nav-item">
-                       <h4 class="nav-title"><a href="mailto:hello@goethe.studio">Reach Out</a></h4>
+                        <h4 class="nav-title">
+                            <a href="mailto:hello@goethe.studio">Reach Out <span class="nav-arrow">&#8599;</span></a>
+                        </h4>
                         <p class="nav-description">Have a story to tell?<br>Your vision is waiting</p>
                     </div>
+                    
                     <div class="nav-item">
-                        <h4 class="nav-title"><a href="https://www.instagram.com/goethe.studio" target="_blank">Follow Us</a></h4>
+                        <h4 class="nav-title">
+                            <a href="https://www.instagram.com/goethe.studio" target="_blank">Follow Us <span class="nav-arrow">&#8599;</span></a>
+                        </h4>
                         <p class="nav-description">The best kept secret in design services.<br>Follow along for exclusive access</p>
                     </div>
+                    
                 </div>   
         </div>
 
@@ -130,8 +138,7 @@
             });
         }
     
-    //EMAIL CAPTURE FORM//
-    document.getElementById("emailForm").addEventListener("submit", function(event) {
+        document.getElementById("emailForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent page reload
 
     let emailInput = document.getElementById("emailInput").value;
@@ -142,13 +149,14 @@
     let statusText = document.getElementById("statusText");
     let emailContainer = document.querySelector(".email-container");
     let emailMessage = document.getElementById("emailMessage");
+
     let googleScriptURL = "https://script.google.com/macros/s/AKfycbwkd41HgMaJHEcNo3e8jcB5yDj5FpBDKrqC8NUQHe-BFKJdu6iHSagNS3mdkPBxm3UE/exec"; 
 
     if (emailInput.includes("@") && emailInput.includes(".")) {
         // Show loading state
-        buttonText.style.display = "none"; // Hide "Subscribe"
-        spinner.style.display = "inline-block"; // Show spinner
-        statusText.textContent = "Saving..."; // Update status text
+        buttonText.style.display = "none"; 
+        spinner.style.display = "inline-block"; 
+        statusText.textContent = "Saving..."; 
 
         fetch(googleScriptURL, {
             method: "POST",
@@ -157,29 +165,33 @@
             body: `email=${encodeURIComponent(emailInput)}`
         }).then(() => {
             // Switch to checkmark and "Done" text
-            spinner.style.display = "none"; // Hide spinner
-            checkmark.style.display = "inline-block"; // Show checkmark
-            statusText.textContent = "Done"; // Update status text
+            spinner.style.display = "none"; 
+            checkmark.style.display = "inline-block"; 
+            statusText.textContent = "Done"; 
+
+            // **Disable Scrolling**
+            document.body.classList.add("no-scroll");
 
             setTimeout(() => {
                 // Collapse form into a thank-you message
                 emailContainer.style.opacity = "0";
                 setTimeout(() => {
-                    emailContainer.innerHTML = `<h2 class="thank-you-message">Thank you.<br>We'll be in touch shortly!</h2>`;
+                    emailContainer.innerHTML = `<h4 class="thank-you-message">Thank you.</h4><br><br><h2 class="thank-you-message">We'll be in touch shortly!</h2>`;
                     emailContainer.style.opacity = "1";
-                }, 150); // Small delay for smooth transition
-            }, 500); // Show checkmark for 2 seconds
+                }, 150);
+            }, 500);
 
-            document.getElementById("emailInput").value = ""; // Clear input
+            document.getElementById("emailInput").value = ""; 
         }).catch((error) => {
-            buttonText.style.display = "inline"; // Restore text
-            spinner.style.display = "none"; // Hide spinner
-            statusText.textContent = ""; // Remove status text
+            buttonText.style.display = "inline"; 
+            spinner.style.display = "none"; 
+            statusText.textContent = ""; 
         });
     } else {
         alert("Please enter a valid email.");
     }
 });
+
 
     </script>    
 </body>

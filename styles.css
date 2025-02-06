@@ -7,6 +7,13 @@
   font-display: swap;
 }
 
+/* Prevent scrolling */
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -108,7 +115,7 @@ main {
 
 .emailTitle h1 {
   font-size: 1.7rem;
-  line-height: 1.8rem;
+  line-height: 1.9rem;
   font-weight: 200;
   text-transform: uppercase;
   font-family:"Inter", sans-serif;
@@ -222,7 +229,7 @@ main {
   height: 100vh;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
   text-align: center;
   color: #F3ECD8;
   padding-top: 20px;
@@ -306,12 +313,13 @@ p {
 .menu-button {
   display: block !important;
   position: absolute;
+  height: 32px;
   top: 30px;
   right: 30px;
   font-family: "Inter", sans-serif;
   font-weight: 500;
   letter-spacing: .02rem;
-  font-size: .7rem;
+  font-size: 11px;
   padding: 8px 20px;
   background-color: #3C0500;
   color: #F3ECD8;
@@ -323,8 +331,31 @@ p {
 }
 
 .menu-button:hover {
-  border-color: #02228C;
+  border: 1px solid #02228C;
   background-color: #02228C;
+}
+
+.vault-button {
+  position: absolute;
+  height: 32px;
+  top: 30px;
+  right: 120px; /* Positions it next to the "Home" button */
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  letter-spacing: .02rem;
+  font-size: 11px;
+  padding: 7px 16px 7px 14px;
+  background-color: #3C0500; 
+  color: #FCF6E6;
+  border: 1px solid #3C0500; /* Brown border */
+  border-radius: 100px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.vault-button:hover {
+  background-color: #3C0500; 
+  color: #FCF6E6;
 }
 
 .overlay {
@@ -362,8 +393,7 @@ p {
 
 .nav-item {
   width: 380px;
-  margin-bottom: 20px;
-  padding: 15px;
+  padding: 20px;
   border-radius: 16px;
   text-align: center;
   color: #02228C;
@@ -375,21 +405,26 @@ p {
   background-color: #FBF2DC;
 }
 
-.nav-title {
+.nav-title, a {
   color: #02228C;
+  margin-bottom: 5px;
   font-size: .7rem;
+  font-weight: 600;
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  text-decoration: underline;
 }
 
-/* Arrow symbol */
-.nav-title::after {
-  content: "↗"; /* Adds diagonal arrow */
+/* Style for the diagonal arrow */
+.nav-arrow {
+  font-size: 0.6rem;
   font-weight: 500;
+  margin-bottom: 2px;
+  text-decoration: none;
+  margin-left: 7px; 
+  display: inline-block;
 }
+
 
 .nav-description {
   color:  #02228C;
@@ -569,7 +604,7 @@ p {
 
   .emailTitle h1 {
     font-size: 1.4 rem;
-    line-height: 1.6rem;
+    line-height: 1.9rem;
     font-weight: 200;
     text-transform: uppercase;
     font-family:"Inter", sans-serif;
@@ -579,8 +614,10 @@ p {
 
 }
 
-@media (max-width: 380px) {
-  h3, .link {
-    font-size: 1.4rem;
-  }
+#emailInput {
+  font-size: 16px;
+}
+
+.nav-item {
+  background-color: #FBF2DC;
 }
