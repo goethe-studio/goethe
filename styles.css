@@ -393,7 +393,7 @@ p {
 
 .nav-item {
   width: 380px;
-  padding: 20px;
+  padding: 15px 20px 20px 20px;
   border-radius: 16px;
   text-align: center;
   color: #02228C;
