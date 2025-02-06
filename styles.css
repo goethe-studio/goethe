@@ -227,6 +227,7 @@ main {
 /* Thank-You Message */
 .thank-you-message {
   font-family: "Inter", sans-serif;
+  text-transform: none;
   font-size: 1rem;
   font-weight: 300;
   text-align: center;
