@@ -617,7 +617,8 @@ p {
     font-size: 1.8rem;
   }
   #email-form {
-    width: 320px;
+    width: 95vw;
+    padding: 30px;
   }
 
   .thank-you-wrapper {
