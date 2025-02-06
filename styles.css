@@ -100,7 +100,6 @@ main {
   text-align: center;
   padding: 50px 0 0;
   background: transparent;
-  width: 400px;
   margin: 0 auto;
   border-radius: 10px;
   z-index: 1;
@@ -135,7 +134,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 100%;
+  width: 400px;
   justify-content: center;
 }
 
@@ -223,24 +222,33 @@ main {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-/* Thank-You Message */
-.thank-you-message {
-  font-family: "Inter", sans-serif;
-  text-transform: none;
-  font-size: 1rem;
-  font-weight: 300;
+/* Thank You Message Styling */
+.thank-you-wrapper {
   text-align: center;
-  color: #F3ECD8;
-  padding-top: 50px;
-  opacity: 0;
-  animation: fadeIn 0s ease-in-out forwards;
+  color: #FCF6E6; /* Light text color */
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
 }
 
-/* Fade-In Animation */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Title Styling */
+.thank-you-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  opacity: .9;
+}
+
+/* Main Message Styling */
+.thank-you-message, p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 200;
+  line-height: 1.3;
+  opacity: .9;
 }
 
 /* Image banner styling */

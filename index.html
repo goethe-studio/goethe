@@ -33,7 +33,7 @@
                 <div class="overlay-content">
                     <div class="nav-item">
                         <h4 class="nav-title">
-                            <a href="mailto:hello@goethe.studio?subject=Something%20exciting%20is%20coming%20–%20Goethe%20x%20?????&body=Hey%20Goethe,%0A%0AI'm%20interested%20in:%0A%0A[   ]%20Brand%20Services%0A[   ]%20Web%20Services%0A[   ]%20All%20The%20Bells%20and%20Whistles%0A%0AHere's%20a%20bit%20more%20about%20what%20I%20am%20cooking%20up:%0A%0ALet's%20schedule%20a%20time%20to%20chat!" 
+                            <a href="mailto:hello@goethe.studio?subject=New%20Collab:%20Goethe%20x%20[?????]&body=Hey%20Goethe,%0A%0AI'm%20interested%20in:%0A%0A[   ]%20Brand%20Services%0A[   ]%20Web%20Services%0A[   ]%20All%20The%20Bells%20and%20Whistles%0A%0AHere's%20a%20bit%20more%20about%20what%20I%20am%20cooking%20up:%0A%0ALet's%20schedule%20a%20time%20to%20chat!" 
                             class="reach-out-link">
                             Reach Out <span class="nav-arrow">
                                 <img src="Arrow.svg" alt="Arrow" class="nav-icon">
@@ -190,7 +190,16 @@
             setTimeout(() => {
                 emailContainer.style.opacity = "0";
                 setTimeout(() => {
-                    emailContainer.innerHTML = `<h4 class="thank-you-message">Thank you.<br>We'll be in touch shortly!</h4>`;
+                    emailContainer.innerHTML = `
+    <div class="thank-you-wrapper">
+        <h4 class="thank-you-title">THANKS FOR REACHING OUT</h4>
+        <p class="thank-you-message">
+            We're excited to learn more about your venture and to determine how we can best partner with you on creating something 
+            <span style="font-weight: 400;">meaningful</span> and <span style="font-weight: 400;">impactful.</span>
+            <br><br>We'll be in touch shortly.
+        </p>
+    </div>`;
+
                     emailContainer.style.opacity = "1";
                 }, 150);
             }, 500);
