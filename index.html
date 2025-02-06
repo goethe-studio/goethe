@@ -150,8 +150,9 @@
                 }
             });
         }
-    
-        document.getElementById("emailForm").addEventListener("submit", function(event) {
+
+    let lastScrollTop = window.scrollY; // Store user's scroll position before submitting
+    document.getElementById("emailForm").addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent page reload
 
     let emailInput = document.getElementById("emailInput").value;
@@ -161,15 +162,17 @@
     let checkmark = document.getElementById("checkmark");
     let statusText = document.getElementById("statusText");
     let emailContainer = document.querySelector(".email-container");
-    let emailMessage = document.getElementById("emailMessage");
 
-    let googleScriptURL = "https://script.google.com/macros/s/AKfycbwkd41HgMaJHEcNo3e8jcB5yDj5FpBDKrqC8NUQHe-BFKJdu6iHSagNS3mdkPBxm3UE/exec"; 
+    let googleScriptURL = "https://script.google.com/macros/s/AKfycbwkd41HgMaJHEcNo3e8jcB5yDj5FpBDKrqC8NUQHe-BFKJdu6iHSagNS3mdkPBxm3UE/exec";
 
     if (emailInput.includes("@") && emailInput.includes(".")) {
+        // Store last scroll position before locking downward scroll
+        lastScrollTop = window.scrollY;
+
         // Show loading state
-        buttonText.style.display = "none"; 
-        spinner.style.display = "inline-block"; 
-        statusText.textContent = "Saving..."; 
+        buttonText.style.display = "none";
+        spinner.style.display = "inline-block";
+        statusText.textContent = "Saving...";
 
         fetch(googleScriptURL, {
             method: "POST",
@@ -177,21 +180,12 @@
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: `email=${encodeURIComponent(emailInput)}`
         }).then(() => {
-            // Switch to checkmark and "Done" text
-            spinner.style.display = "none"; 
-            checkmark.style.display = "inline-block"; 
-            statusText.textContent = "Done"; 
-
-            // **Disable Scrolling**
-            document.body.classList.add("no-scroll");
+            // Show success message
+            spinner.style.display = "none";
+            checkmark.style.display = "inline-block";
+            statusText.textContent = "Done";
 
             setTimeout(() => {
-            document.body.classList.remove("no-scroll");
-            }, 5000); // Re-enable scrolling after 5 seconds
-
-
-            setTimeout(() => {
-                // Collapse form into a thank-you message
                 emailContainer.style.opacity = "0";
                 setTimeout(() => {
                     emailContainer.innerHTML = `<h4 class="thank-you-message">Thank you.<br>We'll be in touch shortly!</h4>`;
@@ -199,17 +193,25 @@
                 }, 150);
             }, 500);
 
-            document.getElementById("emailInput").value = ""; 
+            document.getElementById("emailInput").value = "";
+
+            // **Lock scrolling downward but allow scrolling up**
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > lastScrollTop) {
+                    window.scrollTo(0, lastScrollTop); // Prevent scrolling down
+                }
+            });
+
         }).catch((error) => {
-            buttonText.style.display = "inline"; 
-            spinner.style.display = "none"; 
-            statusText.textContent = ""; 
+            buttonText.style.display = "inline";
+            spinner.style.display = "none";
+            statusText.textContent = "";
+            alert("An error occurred. Please try again.");
         });
     } else {
         alert("Please enter a valid email.");
     }
 });
-
 
     </script>    
 </body>

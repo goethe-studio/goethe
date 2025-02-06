@@ -226,13 +226,12 @@ main {
 
 /* Thank-You Message */
 .thank-you-message {
-  height: 100vh;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   font-weight: 300;
   text-align: center;
   color: #F3ECD8;
-  padding-top: 20px;
+  padding-top: 50px;
   opacity: 0;
   animation: fadeIn 0s ease-in-out forwards;
 }
