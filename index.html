@@ -186,10 +186,15 @@
             document.body.classList.add("no-scroll");
 
             setTimeout(() => {
+            document.body.classList.remove("no-scroll");
+            }, 5000); // Re-enable scrolling after 5 seconds
+
+
+            setTimeout(() => {
                 // Collapse form into a thank-you message
                 emailContainer.style.opacity = "0";
                 setTimeout(() => {
-                    emailContainer.innerHTML = `<h4 class="thank-you-message">Thank you.</h4><br><br><h2 class="thank-you-message">We'll be in touch shortly!</h2>`;
+                    emailContainer.innerHTML = `<h4 class="thank-you-message">Thank you.<br><br>We'll be in touch shortly!</h4>`;
                     emailContainer.style.opacity = "1";
                 }, 150);
             }, 500);
