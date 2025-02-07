@@ -165,7 +165,6 @@ main {
   font-weight: 300;
 }
 
-/* Submit Button */
 #submitButton {
   font-family: "Inter", sans-serif;
   display: flex;
@@ -615,10 +614,12 @@ p {
   }
   #emailInput {
     font-size: 16px;
+    width: 320px;
   }
 
-  #emailInput, #submitButton {
+  #submitButton {
     width: 320px;
+    font-size: .8rem;
   }
 
   .thank-you-wrapper {
