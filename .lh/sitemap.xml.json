@@ -1,0 +1,18 @@
+{
+    "sourceFile": "sitemap.xml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1738969614873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1738969614873,
+            "name": "Commit-0",
+            "content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<urlset\r\n      xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"\r\n      xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n      xsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9\r\n            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\">\r\n<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->\r\n\r\n\r\n<url>\r\n  <loc>https://www.goethe.studio/</loc>\r\n  <lastmod>2024-11-07T22:50:43+00:00</lastmod>\r\n</url>\r\n\r\n\r\n</urlset>"
+        }
+    ]
+}
