@@ -61,11 +61,38 @@ function toggleOverlay() {
         }
 
 
+    // BOT PROTECTION //
+    // Paste the Cloudflare Turnstile site key here to turn it on. Empty = off.
+    const TURNSTILE_SITE_KEY = "";
+    const MIN_FILL_TIME_MS = 3000; // real people take longer than 3 seconds
+    const pageLoadedAt = Date.now();
+    let turnstileToken = "";
+
+    if (TURNSTILE_SITE_KEY) {
+        window.onTurnstileLoad = function () {
+            turnstile.render("#turnstileContainer", {
+                sitekey: TURNSTILE_SITE_KEY,
+                appearance: "interaction-only",
+                callback: function (token) { turnstileToken = token; },
+                "expired-callback": function () { turnstileToken = ""; }
+            });
+        };
+        const turnstileScript = document.createElement("script");
+        turnstileScript.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad&render=explicit";
+        turnstileScript.async = true;
+        turnstileScript.defer = true;
+        document.head.appendChild(turnstileScript);
+    }
+
     // EMAIL OPT-IN //
     document.getElementById("emailForm").addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent page reload
-    
+
         let emailInput = document.getElementById("emailInput").value.trim();
+        let honeypot = document.getElementById("websiteInput").value;
+        let elapsed = Date.now() - pageLoadedAt;
+        // Bots that fill the hidden field or submit instantly get a fake success and nothing is saved
+        let looksLikeBot = honeypot !== "" || elapsed < MIN_FILL_TIME_MS;
         let submitButton = document.getElementById("submitButton");
         let buttonText = document.getElementById("buttonText");
         let spinner = document.getElementById("loadingSpinner");
@@ -83,13 +110,24 @@ function toggleOverlay() {
             spinner.style.display = "inline-block";
             statusText.textContent = "Saving...";
     
-            // Send data to Google Apps Script
-            fetch(googleScriptURL, {
-                method: "POST",
-                mode: "no-cors",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: `email=${encodeURIComponent(emailInput)}`
-            }).then(() => {
+            // Send data to Google Apps Script (the script re-checks everything server-side)
+            let formBody = new URLSearchParams({
+                email: emailInput,
+                website: honeypot,
+                elapsed: String(elapsed),
+                token: turnstileToken
+            }).toString();
+
+            let request = looksLikeBot
+                ? Promise.resolve()
+                : fetch(googleScriptURL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: formBody
+                });
+
+            request.then(() => {
                 // Show checkmark and success message
                 spinner.style.display = "none";
                 checkmark.style.display = "inline-block";

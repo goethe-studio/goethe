@@ -72,6 +72,13 @@
                 </div>
                 <form id="emailForm">
                     <input type="email" id="emailInput" placeholder="Enter your email" required>
+                    <!-- Bot trap: hidden from people, bots fill it in. Leave it empty. -->
+                    <div class="hp-field" aria-hidden="true">
+                        <label for="websiteInput">Website</label>
+                        <input type="text" id="websiteInput" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+                    <!-- Cloudflare Turnstile renders here once a site key is set in JS/scripts.js -->
+                    <div id="turnstileContainer"></div>
                     <button type="submit" id="submitButton">
                         <span id="buttonText">Your Vision Is Waiting</span>
                         <span id="loadingSpinner" class="spinner"></span>
