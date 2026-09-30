@@ -639,3 +639,17 @@ p {
   }
 
 }
+
+/* Bot trap field: kept off-screen so people never see it */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Turnstile only takes space if Cloudflare asks for a click */
+#turnstileContainer:empty {
+  display: none;
+}
