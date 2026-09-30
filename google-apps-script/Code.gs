@@ -5,7 +5,7 @@ var SHEET_ID = "1nY6sD-bzi2eQxKLmJWR34tICCdRXqVIIM1UniS4a8UE";
 
 // Turn this to true AFTER the website update (bot-protection branch) is live.
 // It rejects anything that didn't come through the real site.
-var REQUIRE_SITE_CHECKS = false;
+var REQUIRE_SITE_CHECKS = true;
 var MIN_FILL_TIME_MS = 3000;
 
 function doPost(e) {
